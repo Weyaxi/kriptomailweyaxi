@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, session
 from flask_mysqldb import MySQL
 import MySQLdb.cursors
 import encode_decode
+import ssl
 
 app = Flask(__name__)
 
@@ -63,6 +64,9 @@ def register():
     elif request.method == 'POST':
         msg = 'Please fill out the form !'
     return render_template('register.html', msg=msg)
+context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
+context.load_verify_locations("/home/kriptomail/root.pem")
+context.load_cert_chain("/home/kriptomail/a.pem", "/home/kriptomail/kriptomail.me.key")
 
 
-app.run(debug=True)
+app.run(debug=True,ssl_context=context,host='0.0.0.0',port=443)
