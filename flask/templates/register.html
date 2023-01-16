@@ -12,10 +12,19 @@
              </div></br></br></br>
             <h2 class="word">
                 <form action="{{ url_for('register') }}" method="post">
+                {{ form.hidden_tag() }}
+                {{ form.recaptcha }}
+                {{ form.submit }}
                   <div class="msg">{{ msg }}</div>
                     <input id="email" name="email" type="text" placeholder="Enter Your Email" class="textbox"/></br></br>
                     <input id="password" name="password" type="password" placeholder="Enter Your Password" class="textbox"/></br></br>
-                    <input type="submit" class="btn" value="Sign Up"></br>
+                    <input id="safequestion1" name="safequestion1" type="text" placeholder="Enter Your Safe question 1" class="textbox"/></br></br>
+                    <input id="safeanswer1" name="safeanswer1" type="text" placeholder="Enter Your Safe answer 1" class="textbox"/></br></br>
+                    <input id="safequestion2" name="safequestion2" type="text" placeholder="Enter Your Safe question 2" class="textbox"/></br></br>
+                    <input id="safeanswer2" name="safeanswer2" type="text" placeholder="Enter Your Safe answer 2" class="textbox"/></br></br>
+                    <input id="safequestion3" name="safequestion3" type="text" placeholder="Enter Your Safe question 3" class="textbox"/></br></br>
+                    <input id="safeanswer3" name="safeanswer3" type="text" placeholder="Enter Your Safe answer 3" class="textbox"/></br></br
+                    <br><input type="submit" class="btn" value="Sign Up"></br>
                 </form>
             </h2>
             <p class="bottom">Already have an account?  <a class="bottom" href="{{url_for('login')}}"> Sign In here</a></p>
