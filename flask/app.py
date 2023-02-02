@@ -22,4 +22,4 @@ def register():
         # Return an error message or redirect the user to an error page
         pass
 
-app.run(debug=True)
+app.run(debug=True,host='0.0.0.0',port=443)
